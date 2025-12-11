@@ -16,7 +16,7 @@ This project has reached its final stages. Small improvements may be made, but d
 - [x] Display
 - [ ] Flashlight
 - [x] GPU
-- [x] SMS & ```Does not work in 24H2```
+- [x] SMS ```Does not work in 24H2```
 - [x] Touchscreen
 - [x] LTE ```SIM card must be in SIM1 slot``` & ```LTE does not work in 24H2```
 - [x] Microphone
