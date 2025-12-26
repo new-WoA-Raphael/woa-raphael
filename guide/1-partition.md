@@ -46,6 +46,11 @@ cd path\to\platform-tools
 fastboot boot path\to\modded-twrp-raphael.img
 ```
 
+> [!Important]
+> If you get a black screen, try running the commands while on this black screen, as they may still work. If they don't, flash official stock MIUI and try again.
+>
+> If the recovery still refuses to boot or you don't want to switch ROMs, follow [this guide](/guide/1-altpartition.md) instead.
+
 #### Backing up your boot image
 > This will back up your boot image in the current directory (which should be the **platform-tools** folder)
 >
