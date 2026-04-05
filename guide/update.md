@@ -7,9 +7,7 @@
 ### Prerequisites
 - [Modified TWRP](https://github.com/new-WoA-Raphael/woa-raphael/releases/download/Files/modded-twrp-raphael.img)
 
-- [Drivers](https://github.com/new-WoA-Raphael/woa-raphael/releases/tag/Drivers)
-
-- [UEFI image](https://github.com/new-WoA-Raphael/woa-raphael/releases/tag/UEFI)
+- [Drivers & UEFI image](https://github.com/rexnox/windows_xiaomi_platforms/releases)
 
 ### Boot into the modified TWRP
 > While in fastboot mode, replace `path\to\modded-twrp-raphael.img` with the actual path of the image
