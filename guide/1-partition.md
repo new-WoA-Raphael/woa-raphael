@@ -59,14 +59,6 @@ fastboot boot path\to\modded-twrp-raphael.img
 adb pull /dev/block/by-name/boot boot.img
 ```
 
-### Partitioning your device
-> There are two methods to partition your device. Please select the method you would like to use below. 
-
-#### Method 1: Manual partitioning 
-
-<details>
-  <summary><strong>Click here for method 1</strong></summary> 
-
 #### Opening a shell
 ```cmd
 adb shell
@@ -74,11 +66,11 @@ adb shell
 
 #### Resizing the partition table
 ```cmd
-adb shell sgdisk --resize-table 64 /dev/block/sda
+sgdisk --resize-table 64 /dev/block/sda
 ```
 
 ### Preparing for partitioning
-$${\color{lightblue}🟦 Note}$$
+> [!Note]
 > If at any moment in parted you see an error prompting you to type "Yes/No" or "Ignore/Cancel", type `Yes` or `Ignore` depending on the situation to ignore the errors and continue.
 >
 > If you see any **udevadm** errors, you can ignore these as well.
@@ -153,29 +145,6 @@ adb shell mkfs.fat -F32 -s1 /dev/block/by-name/esp -n ESPRAPHAEL
 ```cmd
 adb shell fixgpt
 ```
-
-</details>
-
-#### Method 2: Automatic partitioning 
-
-<details>
-  <summary><strong>Click here for method 2</strong></summary> 
-
-> [!Important]
-> If your device is using dynamic partitions for newer roms, DO NOT USE THE PARTITION SCRIPT and instead use **Method 1: Manual partitioning**.
-
-### Run the partitioning script
-> Replace **$** with the amount of storage you want Windows to have (do not add GB, just write the number)
-> 
-> If it asks you to run it once again, do so
-```cmd
-adb shell partition $
-``` 
-
-### Check if Android still starts
-- Just restart the phone, and see if Android still works 
-
-</details>
 
 ## [Next step: Rooting your phone](/guide/2-root.md)
 
