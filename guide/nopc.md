@@ -48,6 +48,11 @@ su -c reboot recovery
 - Once booted into TWRP press the **Advanced** button on the bottom right of the screen, then press **Terminal**.
 - Run all future commands in this terminal
 
+#### Resizing the partition table
+```cmd
+sgdisk --resize-table 64 /dev/block/sda
+```
+
 #### Unmount data
 > Ignore any possible errors and continue
 ```cmd
@@ -82,11 +87,11 @@ rm $
 ```
 
 #### Recreating userdata
-> Replace **17.7GB** with the former start value of **userdata** which we just deleted
+> Replace **2080MB** with the former start value of **userdata** which we just deleted
 >
-> Replace **64GB** with the end value you want **userdata** to have. In this example your available usable space in Android will be 64GB-17.7GB = **47GB**
+> Replace **64GB** with the end value you want **userdata** to have. In this example your available usable space in Android will be 64GB-2080MB = **62GB**
 ```cmd
-mkpart userdata ext4 17.7GB 64GB
+mkpart userdata ext4 2080MB 64GB
 ```
 
 #### Creating ESP partition
