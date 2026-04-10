@@ -9,9 +9,8 @@
 
 - [Windows on ARM image](https://arkt-7.github.io/woawin/)
 
-- [Drivers](https://github.com/new-WoA-Raphael/woa-raphael/releases/tag/Drivers)
+- [Drivers & UEFI image](https://github.com/rexnox/windows_xiaomi_platforms/releases)
 
-- [UEFI image](https://github.com/new-WoA-Raphael/woa-raphael/releases/tag/UEFI)
 
 ### Boot into the modified TWRP
 > While in fastboot mode, replace `path\to\modded-twrp-raphael.img` with the actual path of the image

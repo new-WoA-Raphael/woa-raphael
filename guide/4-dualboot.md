@@ -5,7 +5,7 @@
 ## Dualbooting Android and Windows seamlessly
 
 ### Prerequisites
-- [UEFI image](https://github.com/new-WoA-Raphael/woa-raphael/releases/tag/UEFI)
+- [UEFI image](https://github.com/rexnox/windows_xiaomi_platforms/releases)
 
 - [WOA Helper app](https://github.com/n00b69/woa-helper/releases/tag/APK)
 

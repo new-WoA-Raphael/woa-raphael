@@ -16,9 +16,9 @@ This project has reached its final stages. Small improvements may be made, but d
 - [x] Display
 - [ ] Flashlight
 - [x] GPU
-- [x] SMS ```Does not work in 24H2```
+- [x] SMS 
 - [x] Touchscreen
-- [x] LTE ```SIM card must be in SIM1 slot``` & ```LTE does not work in 24H2```
+- [x] LTE ```SIM card must be in SIM1 slot```
 - [x] Microphone
 - [x] UFS
 - [x] USB
@@ -29,13 +29,13 @@ This project has reached its final stages. Small improvements may be made, but d
 - [ ] Fingerprint
 - [x] GPS
 - [ ] Gyroscope
-- [ ] Light sensor
+- [x] Light sensor
 - [ ] Magnetometer
 - [ ] Proximity
 
 #### Security
 - [ ] Security Processor ```Impossible to get working, Xiaomi broke the firmware```
-- [x] TPM (Software Backed)
+- [ ] TPM (Software Backed)
 
 
 
