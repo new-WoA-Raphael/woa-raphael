@@ -45,18 +45,81 @@ su -c reboot recovery
 > If your files are not there and your internal storage is displayed as **(0MB)**, there will be some additional steps which will be explained later in this guide.
 
 #### Opening TWRP terminal
-- Press the **Advanced** button on the bottom right of the screen, then press **Terminal**.
+- Once booted into TWRP press the **Advanced** button on the bottom right of the screen, then press **Terminal**.
+- Run all future commands in this terminal
 
-### Run the partitioning script
-> Replace **$** with the amount of storage you want Windows to have (do not add GB, just write the number)
-> 
-> If it asks you to run it once again, do so
+#### Unmount data
+> Ignore any possible errors and continue
 ```cmd
-partition $
-``` 
+umount /dev/block/by-name/userdata
+```
 
-### Check if Android still starts
-- Just restart the phone, and see if Android still works
+### Fixing the GPT
+> If you do not do this, Windows may break your device
+```cmd
+fixgpt
+```
+
+#### Preparing for partitioning
+> [!Note]
+> If at any time **parted** asks you if you want to continue, or if you want to cancel something, type **yes** or **ignore**
+>
+> Be very careful with writing in parted. It is not possible to use backspace to fix a typo. If at any point you make any mistakes, use the **print** command to check if any changes were made
+```cmd
+parted /dev/block/sda
+```
+
+#### Printing the current partition table
+> Parted will print the list of partitions, userdata should be the last partition in the list.
+```cmd
+print
+```
+
+#### Removing userdata
+> Replace **$** with the number of the **userdata** partition, which should be **30**
+```cmd
+rm $
+```
+
+#### Recreating userdata
+> Replace **17.7GB** with the former start value of **userdata** which we just deleted
+>
+> Replace **64GB** with the end value you want **userdata** to have. In this example your available usable space in Android will be 64GB-17.7GB = **47GB**
+```cmd
+mkpart userdata ext4 17.7GB 64GB
+```
+
+#### Creating ESP partition
+> Replace **64GB** with the end value of **userdata**
+>
+> Replace **64.35GB** with the value you used before, adding **0.35GB** to it
+```cmd
+mkpart esp fat32 64GB 64.35GB
+```
+
+#### Creating Windows partition
+> Replace **64.35GB** with the end value of **esp**
+```cmd
+mkpart win ntfs 64.35GB 126GB
+```
+
+#### Making ESP bootable
+> Use `print` to see all partitions. Replace "$" with your ESP partition number, which should be **31**
+```cmd
+set $ esp on
+```
+
+#### Exit parted
+```cmd
+quit
+```
+
+### Formatting data and rebooting
+- Format all data in TWRP, or Android will not boot.
+- ( Go to Wipe > Format data > type `yes` ).
+- Press the reboot button to reboot into Android.
+> [!Note]
+> If Android does not start after +- 10 minutes, reboot back into stock recovery and perform a factory reset there.
 
 ### Preparing necessary files
 - Download the Windows image and make sure it remains in the `Download` folder of your **internal storage**.
